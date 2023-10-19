@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+  <data>
+    <record id="ampa" model="ir.ui.view">
+      <field name="name">AMPA</field>
+      <field name="model">ampa</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="colegio_id"/>
+            <field name="estudiante_id"/>
+        </tree>
+      </field>
+    </record>
+    <record id="ampa_view_form" model="ir.ui.view">
+      <field name="name">ampa.view.form</field>
+      <field name="model">ampa</field>
+      <field name="arch" type="xml">
+        <form string="Formulario Ampa">
+          <sheet>
+            <group>
+                <field name="name"/>
+                <field name="colegio_id"/>
+                <field name="estudiante_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="ampa_action" model="ir.actions.act_window">
+      <field name="name">AMPA Registros</field>
+      <field name="res_model">ampa</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <h1>VISTA DE AMPA</h1>
+      </field>
+    </record>
+    <menuitem id="menu_ampa3" parent="menu_ampa" action="ampa_action" sequence="60" />
+  </data>
+</odoo> 

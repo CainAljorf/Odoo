@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id='colegio_form' model='ir.ui.view'>
+        <field name='name'>crear wizard form view</field>
+        <field name='model'>colegio_create</field>
+        <field name='arch' type='xml'>
+            <form string="Creación" view_type="form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="direccion"/>
+                        <field name="telefono"/>
+                        <field name="ampa_ids"/>
+                        <field name="profesor_ids"/>
+                        <field name="estudiante_ids"/>
+                        <field name="material_ids"/>
+                        <field name="aulas_ids"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string='Crear' type='object' name='action_crear_colegio' class='btn-primary'/>
+                    <button string='Cancel' class='btn-default' name='cancel' special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_crear2" model="ir.actions.act_window">
+        <field name="name">Crear Colegio</field>
+        <field name="res_model">colegio_create</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="colegio_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_colegio1" parent="menu_colegio" action="action_crear2" sequence="30"  />
+    </data>
+</odoo>
+ 

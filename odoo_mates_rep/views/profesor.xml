@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="profesor">
+            <field name="name">profesor</field>
+            <field name="model">profesor</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="genero"/>
+                    <field name="colegio_id"/>
+                    <field name="material_ids"/>
+                    <field name="estudiante_id"/>
+                    <field name="aulas_ids"/>
+                </kanban>
+            </field>
+        </record>
+        <record id="profesor_view_form" model="ir.ui.view">
+            <field name="name">profesor.view.form</field>
+            <field name="model">profesor</field>
+            <field name="arch" type="xml">
+                <form string="Formulario Profesores">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="genero"/>
+                            <field name="colegio_id"/>
+                            <field name="material_ids"/>
+                            <field name="estudiante_id"/>
+                            <field name="aulas_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="profesor_action" model="ir.actions.act_window">
+            <field name="name">Todos los Profesores</field>
+            <field name="res_model">profesor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <h1>VISTA DE PROFESORES</h1>
+            </field>
+        </record>
+    <menuitem id="menu_profesor3" parent="menu_profesor" action="profesor_action" sequence="50" />
+    </data>
+</odoo>

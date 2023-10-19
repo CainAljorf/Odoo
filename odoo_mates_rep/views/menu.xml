@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+<data>
+        <menuitem id="menu_odoo_mates_rep" name="Odoo Mates Replica" sequence="10" action="colegio_action"/>
+        <menuitem id="menu_ampa" name="AMPA" parent="menu_odoo_mates_rep" action="ampa_action" sequence="20"/>
+        <menuitem id="menu_colegio" name="Colegios" parent="menu_odoo_mates_rep" action="colegio_action" sequence="10"/>
+        <menuitem id="menu_aulas" name="Aulas" parent="menu_odoo_mates_rep" action="aulas_action" sequence="30"/>
+        <menuitem id="menu_estudiante" name="Estudiantes" parent="menu_odoo_mates_rep" action="estudiante_action" sequence="40"/>
+        <menuitem id="menu_material" name="Materiales" parent="menu_odoo_mates_rep" action="material_action" sequence="50"/>
+        <menuitem id="menu_profesor" name="Profesores" parent="menu_odoo_mates_rep" action="profesor_action" sequence="60"/>
+</data>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="colegio">
+      <field name="name">colegio</field>
+      <field name="model">colegio</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="name"/>
+          <field name="direccion"/>
+          <field name="telefono"/>
+          <field name="estudiante_ids"/>
+          <field name="ampa_ids"/>
+          <field name="profesor_ids"/>
+          <field name="material_ids"/>
+          <field name="aulas_ids"/>
+          <templates>
+              <t t-name="kanban-box">
+                  <div class="oe_kanban_global_click">
+                      <div class="oe_kanban_details">
+                          <strong>Nombre:  <field name="name"/></strong><br/>
+                          <b>Dirección: </b><field name="direccion"/><tr/>
+                          <b>Teléfono: </b><field name="telefono"/><br/>
+                          <b>Estudiantes: </b><field name="estudiante_ids"/><br/>
+                          <b>AMPA: </b><field name="ampa_ids"/><tr/>
+                          <b>Profesores: </b><field name="profesor_ids"/><br/>
+                          <b>Materiales: </b><field name="material_ids"/><br/>
+                          <b>Aulas: </b><field name="aulas_ids"/><br/>
+                      </div>
+                  </div>
+              </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <record id="colegio_view_form" model="ir.ui.view">
+      <field name="name">colegio.view.form</field>
+      <field name="model">colegio</field>
+      <field name="arch" type="xml">
+        <form string="Formulario Colegio">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="direccion"/>
+              <field name="telefono"/>
+              <field name="estudiante_ids"/>
+              <field name="ampa_ids"/>
+              <field name="profesor_ids"/>
+              <field name="material_ids"/>
+              <field name="aulas_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="colegio_action" model="ir.actions.act_window">
+      <field name="name">Todos los Colegios</field>
+      <field name="res_model">colegio</field>
+      <field name="view_mode">tree,form,kanban</field>
+      <field name="help" type="html">
+        <h1>VISTA DE COLEGIOS</h1>
+      </field>
+    </record>
+    <menuitem id="menu_colegio3" parent="menu_colegio" action="colegio_action" sequence="60" />
+  </data>
+</odoo> 

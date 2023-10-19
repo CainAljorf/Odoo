@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
+"access_ampa","access_ampa","model_ampa","base.group_user",1,1,1,1
+"access_aulas","access_aulas","model_aulas","base.group_user",1,1,1,1
+"access_colegio","access_colegio","model_colegio","base.group_user",1,1,1,1
+"access_estudiante","access_estudiante","model_estudiante","base.group_user",1,1,1,1
+"access_material","access_material","model_material","base.group_user",1,1,1,1
+"access_profesor","access_profesor","model_profesor","base.group_user",1,1,1,1

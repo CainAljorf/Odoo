@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id='ampa_form' model='ir.ui.view'>
+        <field name='name'>crear wizard form view</field>
+        <field name='model'>ampa_create</field>
+        <field name='arch' type='xml'>
+            <form string="Creación" view_type="form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="colegio_id"/>
+                        <field name="estudiante_id"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string='Crear' type='object' name='action_crear_ampa' class='btn-primary'/>
+                    <button string='Cancel' class='btn-default' name='cancel' special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_crearAM2" model="ir.actions.act_window">
+        <field name="name">Crear AMPA</field>
+        <field name="res_model">ampa_create</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ampa_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_ampa1" parent="menu_ampa" action="action_crearAM2" sequence="30" />
+    </data>
+</odoo>

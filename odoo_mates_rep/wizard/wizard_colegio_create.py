@@ -1,0 +1,33 @@
+from odoo import models, fields
+
+class colegio_create(models.TransientModel):
+
+    _name = 'colegio_create'
+    _description = 'Crear colegio'
+
+    name = fields.Char(string='Nombre')
+    direccion = fields.Char(string='Dirección')
+    telefono = fields.Char(string='Teléfono')
+    
+    profesor_ids = fields.One2many('profesor', inverse_name='colegio_id', string='Profesores')
+    ampa_ids = fields.One2many(comodel_name='ampa', inverse_name='colegio_id', string='AMPA')
+    material_ids = fields.One2many(comodel_name='material', inverse_name='colegio_id', string='Materiales')
+    estudiante_ids = fields.One2many(comodel_name='estudiante', inverse_name='colegio_id', string='Estudiantes')
+    aulas_ids = fields.One2many(comodel_name='aulas', inverse_name='colegio_id', string='Aulas')
+    colegio_id = fields.Many2one('colegio', string= 'Colegio')
+
+    def action_crear_colegio(self):
+        ModeloCrear = self.env['colegio']
+        registro = ModeloCrear.create({
+            'name': self.name,
+            'direccion': self.direccion,
+            'telefono': self.telefono,
+            'profesor_ids': self.profesor_ids.ids,
+            'estudiante_ids': [(6, 0, self.estudiante_ids.ids)],
+            'ampa_ids': self.ampa_ids.ids,
+            'material_ids': self.material_ids.ids,
+            'aulas_ids': self.aulas_ids.ids})
+        return registro
+   
+
+

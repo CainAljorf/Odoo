@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='colegio4_form' model='ir.ui.view'>
+            <field name='name'>borrar wizard form view</field>
+            <field name='model'>colegio_delete</field>
+            <field name='arch' type='xml'>
+                <form string="Borrar" view_type="form">
+                    <sheet>
+                        <group>
+                            <field name="colegio_id"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='BORRAR' type='object' name='unlink_colegio' class='btn-danger' confirm='¿Estás seguro que deseas borrar este registro?'/>
+                        <button string='Cancel' class='btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_crear5" model="ir.actions.act_window">
+            <field name="name">Borrar Colegio</field>
+            <field name="res_model">colegio_delete</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="colegio4_form"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_colegio4" parent="menu_colegio" action="action_crear5" sequence="50" />
+    </data>
+</odoo>

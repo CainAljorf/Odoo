@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='ampa4_form' model='ir.ui.view'>
+            <field name='name'>borrar wizard form view</field>
+            <field name='model'>ampa_delete</field>
+            <field name='arch' type='xml'>
+                <form string="Borrar" view_type="form">
+                    <sheet>
+                        <group>
+                            <field name="ampa_ids"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='BORRAR' type='object' name='unlink_ampa' class='btn-danger' confirm='¿Estás seguro que deseas borrar este registro?'/>
+                        <button string='Cancel' class='btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_crearAM5" model="ir.actions.act_window">
+            <field name="name">Borrar AMPA</field>
+            <field name="res_model">ampa_delete</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="ampa4_form"/>
+            <field name="target">new</field>
+        </record>
+    <menuitem id="menu_ampa4" parent="menu_ampa" action="action_crearAM5" sequence="50" />
+    </data>
+</odoo>

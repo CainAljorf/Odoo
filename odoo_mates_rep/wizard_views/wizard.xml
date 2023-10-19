@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+  <data>
+    <record id='library_crear_wizard_form' model='ir.ui.view'>
+      <field name='name'>crear wizard form view</field>
+      <field name='model'>crear.wizard</field>
+      <field name='arch' type='xml'>
+        <form string="Creación" view_type="form">
+          <sheet>
+            <group>
+             <field name='colegio_id'/>
+             <field name='aulas_ids' attrs="{'invisible': [('colegio_id','=',False)]}"/>
+             <field name='estudiante_id' attrs="{'invisible':['|', ('colegio_id','=',False), ('aulas_ids','=',False)]}"/>
+            </group>
+          </sheet>
+          <footer>
+            <button string='Crear Aula' type='object' name='crear_aulas' class='btn-primary'/>
+            <button string='Añadir alumnos' type='object' name='add_estudiantes' class='btn-primary'/>
+            <button string='Cancel' class='btn-default' special='cancel'/>
+          </footer>
+        </form>
+      </field>
+    </record>
+    <record id="action_crear" model="ir.actions.act_window">
+      <field name="name">Wizard Prueba</field>
+      <field name="res_model">crear.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="library_crear_wizard_form"/>
+      <field name="target">new</field>
+    </record>
+    <menuitem id="menu_crear" parent="menu_odoo_mates_rep" action="action_crear" sequence="70" />
+  </data>
+</odoo> 

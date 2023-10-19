@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="estudiante">
+            <field name="name">estudiante</field>
+            <field name="model">estudiante</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="edad"/>
+                    <field name="genero"/>
+                    <field name="colegio_id"/>
+                    <field name="ampa_ids"/>
+                    <field name="aulas_ids"/>
+                    <field name="profesor_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong>Nombre:  <field name="name"/></strong><br/>
+                                    <b>Edad: </b><field name="edad"/> años <tr/>
+                                    <b>Género: </b><field name="genero"/><br/>
+                                    <b>Colegio: </b><field name="colegio_id"/><br/>
+                                    <b>AMPA: </b><field name="ampa_ids"/><tr/>
+                                    <b>Aulas: </b><field name="aulas_ids"/><br/>
+                                    <b>Profesores: </b><field name="profesor_ids"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="estudiante_view_form" model="ir.ui.view">
+            <field name="name">estudiante.view.form</field>
+            <field name="model">estudiante</field>
+            <field name="arch" type="xml">
+                <form string="Formulario Estudiantes">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="edad"/>
+                            <field name="genero"/>
+                            <field name="ampa_ids"/>
+                            <field name="aulas_ids"/>
+                            <field name="profesor_ids"/>
+                            <field name="colegio_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="estudiante_action" model="ir.actions.act_window">
+            <field name="name">Todos los Estudiantes</field>
+            <field name="res_model">estudiante</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <h1>VISTA DE ESTUDIANTES</h1>
+            </field>
+        </record>
+    <menuitem id="menu_estudiante3" parent="menu_estudiante" action="estudiante_action" sequence="50" />
+  </data>
+</odoo>
+

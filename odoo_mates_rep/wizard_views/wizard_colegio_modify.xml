@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='colegio3_form' model='ir.ui.view'>
+            <field name='name'>Modificar wizard form view</field>
+            <field name='model'>colegio_modify</field>
+            <field name='arch' type='xml'>
+                <form string="modificar" view_type="form">
+                    <sheet>
+                        <group>
+                            <field name="colegio_id"/>
+                            <field name="name"/>
+                            <field name="direccion"/>
+                            <field name="telefono"/>
+                            <field name="ampa_ids"/>
+                            <field name="profesor_ids"/>
+                            <field name="estudiante_ids"/>
+                            <field name="material_ids"/>
+                            <field name="aulas_ids"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='Modificar Colegio' type='object' name='modify_colegio_ids' class='btn-info'/>
+                        <button string='Cancel' class='btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_crear4" model="ir.actions.act_window">
+            <field name="name">Modificar Colegio</field>
+            <field name="res_model">colegio_modify</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="colegio3_form"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_colegio5" parent="menu_colegio" action="action_crear4" sequence="40" />
+    </data>
+</odoo>

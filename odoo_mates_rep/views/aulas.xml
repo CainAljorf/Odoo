@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+  <data>
+    <record id="aulas" model="ir.ui.view">
+      <field name="name">aulas</field>
+      <field name="model">aulas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="colegio_id"/>
+          <field name="estudiante_id"/>
+          <field name="profesor_id"/>
+        </tree>
+      </field>
+    </record>
+    <record id="aulas_view_form" model="ir.ui.view">
+      <field name="name">aulas.view.form</field>
+      <field name="model">aulas</field>
+      <field name="arch" type="xml">
+        <form string="Formulario Aulas">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="colegio_id"/>
+              <field name="estudiante_id"/>
+              <field name="profesor_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="aulas_action" model="ir.actions.act_window">
+      <field name="name">Registros de Aulas</field>
+      <field name="res_model">aulas</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <h1>VISTA DE AULAS</h1>
+      </field>
+    </record>
+    <menuitem id="menu_aulas3" parent="menu_aulas" action="aulas_action" sequence="50" />
+  </data>
+</odoo>

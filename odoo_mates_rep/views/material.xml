@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="material">
+            <field name="name">material</field>
+            <field name="model">material</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="cantidad"/>
+                            <field name="colegio_id"/>
+                            <field name="profesor_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="material_view_form" model="ir.ui.view">
+            <field name="name">material.view.form</field>
+            <field name="model">material</field>
+            <field name="arch" type="xml">
+                <form string="Formulario Materiales">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="cantidad"/>
+                            <field name="colegio_id"/>
+                            <field name="profesor_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="material_action" model="ir.actions.act_window">
+            <field name="name">Registros de Materiales</field>
+            <field name="res_model">material</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <h1>VISTA DE MATERIALES</h1>
+            </field>
+        </record>
+    <menuitem id="menu_material3" parent="menu_material" action="material_action" sequence="50" />
+    </data>
+</odoo> 
